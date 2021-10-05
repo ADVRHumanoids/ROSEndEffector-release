@@ -1,0 +1,28 @@
+ros-melodic-end-effector (1.0.4-1bionic) bionic; urgency=high
+
+  * hotfix after the change of package name
+  * Contributors: Davide Torielli
+
+ -- Luca Muratore <luca.muratore@iit.it>  Mon, 04 Oct 2021 22:00:00 -0000
+
+ros-melodic-end-effector (1.0.3-1bionic) bionic; urgency=high
+
+  * Change name to comply with ROS policy REP 144
+  * Contributors: Davide Torielli
+
+ -- Luca Muratore <luca.muratore@iit.it>  Mon, 04 Oct 2021 22:00:00 -0000
+
+ros-melodic-end-effector (1.0.2-1bionic) bionic; urgency=high
+
+  * package info url & authors
+  * Contributors: Davide Torielli
+
+ -- Luca Muratore <luca.muratore@iit.it>  Sun, 03 Oct 2021 22:00:00 -0000
+
+ros-melodic-end-effector (1.0.1-1bionic) bionic; urgency=high
+
+
+
+ -- Luca Muratore <luca.muratore@iit.it>  Mon, 20 Sep 2021 22:00:00 -0000
+
+
