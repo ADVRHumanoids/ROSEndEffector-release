@@ -1,0 +1,12 @@
+Source: ros-noetic-end-effector
+Section: misc
+Priority: optional
+Maintainer: Luca Muratore <luca.muratore@iit.it>
+Build-Depends: debhelper (>= 9.0.0), libgtest-dev, libmuparser-dev, libyaml-cpp-dev, ros-noetic-catkin, ros-noetic-kdl-parser, ros-noetic-moveit-ros-planning-interface, ros-noetic-roscpp, ros-noetic-rosee-msg, ros-noetic-rospy, ros-noetic-srdfdom
+Homepage: https://advrhumanoids.github.io/ROSEndEffectorDocs/
+Standards-Version: 3.9.2
+
+Package: ros-noetic-end-effector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libmuparser-dev, libyaml-cpp-dev, ros-noetic-joint-state-publisher-gui, ros-noetic-kdl-parser, ros-noetic-message-runtime, ros-noetic-moveit-ros-planning-interface, ros-noetic-roscpp, ros-noetic-rosee-msg, ros-noetic-rospy, ros-noetic-srdfdom
+Description: End-Effector package: provides a ROS-based set of standard interfaces to command robotics end-effectors in an agnostic fashion
