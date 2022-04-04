@@ -6,9 +6,9 @@
 
 #include <sensor_msgs/JointState.h>
 
-#include <ros_end_effector/Parser.h>
-#include <ros_end_effector/EEInterface.h>
-#include <ros_end_effector/Utils.h>
+#include <end_effector/Parser.h>
+#include <end_effector/EEInterface.h>
+#include <end_effector/Utils.h>
 
 namespace {
 
@@ -28,7 +28,10 @@ protected:
         ros::NodeHandle nh;
 
         ROSEE::Parser p ( nh );
-        p.init ( ROSEE::Utils::getPackagePath() + "/configs/test_ee.yaml" );
+        p.init ( ROSEE::Utils::getPackagePath() + "/configs/urdf/test_ee.urdf",
+                 ROSEE::Utils::getPackagePath() + "/configs/srdf/test_ee.srdf",
+                 "ROSEE/actions/test_ee"
+        );
         p.printEndEffectorFingerJointsMap();
 
         ee = std::make_shared<ROSEE::EEInterface>(p);
