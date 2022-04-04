@@ -16,16 +16,16 @@
  */
 
 #include <ros/ros.h>
-//#include <ros_end_effector/UniversalRosEndEffectorExecutor.h>
-#include <ros_end_effector/FindActions.h>
-#include <ros_end_effector/GraspingActions/Action.h>
-#include <ros_end_effector/GraspingActions/ActionComposed.h>
-#include <ros_end_effector/GraspingActions/ActionTimed.h>
-#include <ros_end_effector/GraspingActions/ActionGeneric.h>
-#include <ros_end_effector/ParserMoveIt.h>
-#include <ros_end_effector/Parser.h> //to take urdf from conf file
+//#include <end_effector/UniversalRosEndEffectorExecutor.h>
+#include <end_effector/FindActions.h>
+#include <end_effector/GraspingActions/Action.h>
+#include <end_effector/GraspingActions/ActionComposed.h>
+#include <end_effector/GraspingActions/ActionTimed.h>
+#include <end_effector/GraspingActions/ActionGeneric.h>
+#include <end_effector/ParserMoveIt.h>
+#include <end_effector/Parser.h> //to take urdf from conf file
 
-#include <ros_end_effector/MapActionHandler.h>
+#include <end_effector/MapActionHandler.h>
 
 int main ( int argc, char **argv ) {
 
@@ -37,7 +37,7 @@ int main ( int argc, char **argv ) {
     //Load the ROS Server with urdf and srdf 
     nh.setParam("/robot_description", parser.getUrdfString());
     nh.setParam("/robot_description_semantic", parser.getSrdfString());
-    ROS_INFO_STREAM("FINDACTIONS: Set urdf and srdf file in the param server from config file " << parser.getRoseeConfigPath());
+    ROS_INFO_STREAM("FINDACTIONS: Set urdf and srdf file in the param server");
     
     std::shared_ptr <ROSEE::ParserMoveIt> parserMoveIt = std::make_shared <ROSEE::ParserMoveIt> ();
     if (! parserMoveIt->init ("robot_description") ) {
@@ -49,10 +49,6 @@ int main ( int argc, char **argv ) {
 
     
     std::string folderForActions = parser.getActionPath();
-    
-    if ( folderForActions.size() == 0 ){ //if no action path is set in the yaml file...
-        folderForActions = ROSEE::Utils::getPackagePath() + "/configs/actions/" + parserMoveIt->getHandName();
-    }
     
     ROSEE::FindActions actionsFinder (parserMoveIt);
 
