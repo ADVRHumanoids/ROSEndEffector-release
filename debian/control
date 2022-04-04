@@ -1,0 +1,12 @@
+Source: ros-melodic-end-effector
+Section: misc
+Priority: optional
+Maintainer: Luca Muratore <luca.muratore@iit.it>
+Build-Depends: debhelper (>= 9.0.0), libgtest-dev, libmuparser-dev, libyaml-cpp-dev, ros-melodic-catkin, ros-melodic-kdl-parser, ros-melodic-moveit-ros-planning-interface, ros-melodic-roscpp, ros-melodic-rosee-msg, ros-melodic-rospy, ros-melodic-srdfdom
+Homepage: https://advrhumanoids.github.io/ROSEndEffectorDocs/
+Standards-Version: 3.9.2
+
+Package: ros-melodic-end-effector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libmuparser-dev, libyaml-cpp-dev, ros-melodic-joint-state-publisher-gui, ros-melodic-kdl-parser, ros-melodic-message-runtime, ros-melodic-moveit-ros-planning-interface, ros-melodic-roscpp, ros-melodic-rosee-msg, ros-melodic-rospy, ros-melodic-srdfdom
+Description: End-Effector package: provides a ROS-based set of standard interfaces to command robotics end-effectors in an agnostic fashion
