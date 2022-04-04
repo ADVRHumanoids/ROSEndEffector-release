@@ -2,14 +2,15 @@
 #include "testUtils.h"
 
 #include <ros/ros.h>
+#include <ros/package.h>
 
-#include <ros_end_effector/Parser.h>
-#include <ros_end_effector/ParserMoveIt.h>
-#include <ros_end_effector/FindActions.h>
-#include <ros_end_effector/EEInterface.h>
-#include <ros_end_effector/GraspingActions/ActionGeneric.h>
-#include <ros_end_effector/Utils.h>
-#include <ros_end_effector/YamlWorker.h>
+#include <end_effector/Parser.h>
+#include <end_effector/ParserMoveIt.h>
+#include <end_effector/FindActions.h>
+#include <end_effector/EEInterface.h>
+#include <end_effector/GraspingActions/ActionGeneric.h>
+#include <end_effector/Utils.h>
+#include <end_effector/YamlWorker.h>
 
 #include <rosee_msg/ROSEECommandAction.h>
 #include <actionlib/client/simple_action_client.h>
@@ -50,7 +51,10 @@ protected:
         nh.getParam("robot_name", robot_name);
         
         ROSEE::Parser p ( nh );
-        if (! p.init (  ROSEE::Utils::getPackagePath() + "/configs/" + robot_name + ".yaml" )) {
+        if (! p.init ( ROSEE::Utils::getPackagePath() + "/configs/urdf/" + robot_name + ".urdf",
+                       ROSEE::Utils::getPackagePath() + "/configs/srdf/" + robot_name + ".srdf",
+                       ros::package::getPath("end_effector") + "/actions/" + robot_name + "/") ) 
+        {
             
             std::cout << "[TEST SEND ACTIONS]parser FAIL: some config file missing]" << std::endl;
             return;
@@ -271,7 +275,7 @@ TEST_F ( testSendAction, sendSimpleGeneric ) {
     }
 
     //ROSEE::Action::Ptr action = std::make_shared<ROSEE::ActionGeneric>("testAllUpperLim", jp, jpc);
-    ROSEE::Action::Ptr action = std::make_shared<ROSEE::ActionGeneric>("AAAAAAAAAAAAAAAA", jp, jpc);
+    ROSEE::Action::Ptr action = std::make_shared<ROSEE::ActionGeneric>("RandomActionGeneric", jp, jpc);
     //emit the yaml so roseeExecutor can find the action
     yamlWorker.createYamlFile( action.get(), folderForActions + "/generics/" );
 
