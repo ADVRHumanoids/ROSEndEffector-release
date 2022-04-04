@@ -15,7 +15,7 @@
  * limitations under the License.
 */
 
-#include <ros_end_effector/UniversalRosEndEffectorExecutor.h>
+#include <end_effector/UniversalRosEndEffectorExecutor.h>
 
 
 ROSEE::UniversalRosEndEffectorExecutor::UniversalRosEndEffectorExecutor ( std::string ns ) : _nh ( ns ) {
@@ -42,9 +42,6 @@ ROSEE::UniversalRosEndEffectorExecutor::UniversalRosEndEffectorExecutor ( std::s
     }
     
     folderForActions = p.getActionPath();
-    if ( folderForActions.size() == 0 ){ //if no action path is set in the yaml file...
-        folderForActions = ROSEE::Utils::getPackagePath() + "/configs/actions/" + _ee->getName();
-    }
     
     _motors_names =_ee->getActuatedJoints();
 
