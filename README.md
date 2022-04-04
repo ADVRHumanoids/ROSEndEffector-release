@@ -1,3 +1,26 @@
+## end-effector (noetic) - 1.0.6-2
+
+The packages in the `end-effector` repository were released into the `noetic` distro by running `/usr/bin/bloom-release end-effector -r noetic` on `Mon, 04 Apr 2022 11:47:06 -0000`
+
+The `end_effector` package was released.
+
+Version of package(s) in repository `end-effector`:
+
+- upstream repository: https://github.com/ADVRHumanoids/ROSEndEffector.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `1.0.6-1`
+- new version: `1.0.6-2`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.24`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## end-effector (melodic) - 1.0.6-2
 
 The packages in the `end-effector` repository were released into the `melodic` distro by running `/usr/bin/bloom-release end-effector --rosdistro melodic` on `Mon, 04 Apr 2022 09:53:59 -0000`
